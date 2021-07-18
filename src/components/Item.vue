@@ -1,14 +1,16 @@
 <script>
 export default {
-  functional: true,
-  render(h, { props, listeners }) {
-    console.log("Item");
+  props: {
+    value: {},
+    name: {},
+  },
+  render() {
+    console.log(this.name);
+
     return (
       <Input
-        value={props.value}
-        onInput={($event) => {
-          listeners.input($event.target.value);
-        }}
+        value={this.value}
+        onInput={($event) => this.$emit("input", $event.target.value)}
       />
     );
   },

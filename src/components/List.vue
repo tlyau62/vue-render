@@ -1,24 +1,27 @@
+<template>
+  <div>
+    <Item
+      v-for="[k, v] of fields"
+      :key="k"
+      :value="v"
+      :name="k"
+      @input="$emit('input', { ...value, [k]: $event })"
+    />
+  </div>
+</template>
+
 <script>
 import Item from "./Item";
 
 export default {
+  components: { Item },
   props: {
     value: {},
   },
-  render() {
-    return (
-      <div>
-        {Object.entries(this.value).map(([k, v]) => (
-          <Item
-            value={v}
-            onInput={($event) => {
-              this.$emit("input", { ...this.value, [k]: $event });
-            }}
-            key={k}
-          />
-        ))}
-      </div>
-    );
+  computed: {
+    fields() {
+      return Object.entries(this.value);
+    },
   },
 };
 </script>
