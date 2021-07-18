@@ -1,5 +1,7 @@
 # vue-render
 
+Test on the performance on function and non-functional components on v-for
+
 ## Project setup
 ```
 yarn install
