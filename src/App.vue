@@ -2,16 +2,29 @@
   <div id="app">
     <img alt="Vue logo" src="./assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
+    <List v-model="data" />
+    {{ data }}
   </div>
 </template>
 
 <script>
 import HelloWorld from "./components/HelloWorld.vue";
+import List from "./components/List";
 
 export default {
   name: "App",
   components: {
     HelloWorld,
+    List,
+  },
+  data() {
+    return {
+      data: {
+        field1: "1",
+        field2: "2",
+        field3: "3",
+      },
+    };
   },
 };
 </script>
